@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation libs.kotlin
+    implementation libs.dagger
+    implementation libs.timber
+    implementation libs.rxJava2
+    implementation libs.rxKotlin
+    implementation libs.retrofit
+    implementation libs.retrofitMoshiConverter
+    implementation libs.retrofitRxJava2Adapter
+    implementation libs.moshi
+    implementation libs.okHttp
+    implementation libs.loggingInterceptor
+}

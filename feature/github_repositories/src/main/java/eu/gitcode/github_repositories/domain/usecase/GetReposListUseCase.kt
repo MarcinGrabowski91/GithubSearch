@@ -1,11 +1,11 @@
 package eu.gitcode.github_repositories.domain.usecase
 
 import eu.gitcode.github_repositories.domain.model.GithubRepo
-import eu.gitcode.github_repositories.domain.repository.ReposRepository
+import eu.gitcode.github_repositories.domain.repository.GithubReposRepository
 import io.reactivex.Single
 
-class GetReposListUseCase(private val repository: ReposRepository) {
+class GetReposListUseCase(private val repositoryGithub: GithubReposRepository) {
     fun getReposList(): Single<List<GithubRepo>> {
-        return repository.getRepos()
+        return repositoryGithub.getRepos()
     }
 }

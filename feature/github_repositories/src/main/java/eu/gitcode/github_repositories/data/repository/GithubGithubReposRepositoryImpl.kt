@@ -2,11 +2,11 @@ package eu.gitcode.github_repositories.data.repository
 
 import eu.gitcode.github_repositories.data.service.GithubReposService
 import eu.gitcode.github_repositories.domain.model.GithubRepo
-import eu.gitcode.github_repositories.domain.repository.ReposRepository
+import eu.gitcode.github_repositories.domain.repository.GithubReposRepository
 import io.reactivex.Single
 
-class GithubReposRepositoryImpl(private val githubReposService: GithubReposService) :
-    ReposRepository {
+class GithubGithubReposRepositoryImpl(private val githubReposService: GithubReposService) :
+    GithubReposRepository {
 
     override fun getRepos(): Single<List<GithubRepo>> {
         return githubReposService.getBestRepos()

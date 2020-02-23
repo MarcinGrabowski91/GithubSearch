@@ -6,6 +6,7 @@ apply from: '../../buildconfig/app_config.gradle'
 
 dependencies {
     implementation project(":library:network")
+    implementation project(":feature:core")
 
     implementation libs.kotlin
     implementation libs.androidKtx

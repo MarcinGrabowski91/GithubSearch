@@ -2,10 +2,10 @@ package eu.gitcode.login.data.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import eu.gitcode.login.domain.model.Repo
+import eu.gitcode.login.domain.model.GithubRepo
 
 @JsonClass(generateAdapter = true)
-data class RepoData(
+data class GithubRepoData(
     @Json(name = "created_at")
     val createdAt: String,
     @Json(name = "git_url")
@@ -21,8 +21,8 @@ data class RepoData(
     @Json(name = "url")
     val url: String
 ) {
-    fun toDomainModel(): Repo {
-        return Repo(
+    fun toDomainModel(): GithubRepo {
+        return GithubRepo(
             createdAt,
             gitUrl,
             id,

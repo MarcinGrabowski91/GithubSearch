@@ -1,6 +1,6 @@
 package eu.gitcode.login.domain.model
 
-data class Repo(
+data class GithubRepo(
     val createdAt: String,
     val gitUrl: String,
     val id: Int,

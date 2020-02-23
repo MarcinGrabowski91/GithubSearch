@@ -25,6 +25,8 @@ dependencies {
     implementation libs.threeTenABP
     implementation libs.retrofit
     implementation libs.moshi
+    implementation libs.paging
+    implementation libs.pagingRx
 
     kapt proc.dagger
     kapt proc.moshi

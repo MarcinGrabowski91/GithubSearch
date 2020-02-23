@@ -5,7 +5,7 @@ import eu.gitcode.github_repositories.domain.repository.GithubReposRepository
 import io.reactivex.Single
 
 class GetReposListUseCase(private val repositoryGithub: GithubReposRepository) {
-    fun getReposList(): Single<List<GithubRepo>> {
-        return repositoryGithub.getRepos()
+    fun getReposList(keyword: String): Single<List<GithubRepo>> {
+        return repositoryGithub.getRepos(keyword)
     }
 }

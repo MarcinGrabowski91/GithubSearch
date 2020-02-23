@@ -16,8 +16,8 @@ data class GithubRepoData(
     val name: String,
     @Json(name = "owner")
     val ownerData: OwnerData,
-    @Json(name = "score")
-    val score: Double,
+    @Json(name = "stargazers_count")
+    val stars: Int,
     @Json(name = "url")
     val url: String
 ) {
@@ -28,7 +28,7 @@ data class GithubRepoData(
             id,
             name,
             ownerData.toDomainModel(),
-            score,
+            stars,
             url
         )
     }

@@ -8,8 +8,8 @@ import io.reactivex.Single
 class GithubGithubReposRepositoryImpl(private val githubReposService: GithubReposService) :
     GithubReposRepository {
 
-    override fun getRepos(): Single<List<GithubRepo>> {
-        return githubReposService.getBestRepos()
+    override fun getRepos(keyword: String): Single<List<GithubRepo>> {
+        return githubReposService.getBestRepos(keyword)
             .map { repos -> repos.toGithubRepoDomainList() }
     }
 

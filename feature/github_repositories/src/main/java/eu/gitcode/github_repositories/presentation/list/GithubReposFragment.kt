@@ -43,15 +43,13 @@ class GithubReposFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         handleStates()
+        viewModel.getReposList("a")
     }
 
     private fun handleStates() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(GithubReposViewModel::class.java)
-        viewModel.getReposList()
         viewModel.state.observe(viewLifecycleOwner, Observer { state ->
-
-        })
-        viewModel.state.observe(viewLifecycleOwner, Observer { state ->
+            adapter?.setData(state.githubReposList)
             binding.emptyTxt.visible = state.listState.isEmpty()
             binding.songsRecyclerViews.visible = state.listState.isListed()
             binding.errorTxt.visible = state.listState.isError()
@@ -79,6 +77,4 @@ class GithubReposFragment : Fragment() {
             .build()
             .inject(this)
     }
-
-
 }

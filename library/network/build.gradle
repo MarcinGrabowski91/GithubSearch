@@ -1,9 +1,8 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation libs.kotlin
     implementation libs.dagger
     implementation libs.timber
@@ -15,4 +14,6 @@ dependencies {
     implementation libs.moshi
     implementation libs.okHttp
     implementation libs.loggingInterceptor
+
+    kapt proc.dagger
 }

@@ -24,7 +24,7 @@ class GithubReposViewModel
     val state: LiveData<GithubReposViewState>
         get() = _state
 
-    fun getSongs() {
+    fun getReposList() {
         githubReposDisposable?.dispose()
         githubReposDisposable = getReposListUseCase.getReposList()
             .subscribeOn(Schedulers.io())

@@ -18,5 +18,5 @@ abstract class GithubReposViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(GithubReposViewModel::class)
-    abstract fun bindSongsListViewModel(viewModel: GithubReposViewModelModule): ViewModel
+    abstract fun bindSongsListViewModel(viewModel: GithubReposViewModel): ViewModel
 }

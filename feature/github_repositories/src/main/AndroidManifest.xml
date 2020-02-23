@@ -1,1 +1,12 @@
-<manifest package="eu.gitcode.github_repositories" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="eu.gitcode.github_repositories">
+
+    <application>
+        <activity android:name=".presentation.GithubReposActivity">
+            <intent-filter>
+                <action android:name="action.github_repositories.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

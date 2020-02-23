@@ -13,6 +13,8 @@ android {
 
 dependencies {
     implementation project(":library:network")
+    implementation project(":feature:navigation")
+    implementation project(":feature:github_repositories")
 
     implementation libs.kotlin
     implementation libs.androidKtx

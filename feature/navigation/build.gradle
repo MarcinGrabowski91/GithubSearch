@@ -1,12 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply from: '../../buildconfig/app_config.gradle'
 
 dependencies {
     implementation libs.kotlin
-    implementation libs.dagger
-    implementation libs.lifecycleViewModelKtx
-
-    kapt proc.dagger
 }

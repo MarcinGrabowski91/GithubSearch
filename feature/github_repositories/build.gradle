@@ -7,6 +7,7 @@ apply from: '../../buildconfig/app_config.gradle'
 dependencies {
     implementation project(":library:network")
     implementation project(":feature:core")
+    implementation project(":feature:navigation")
 
     implementation libs.kotlin
     implementation libs.androidKtx
@@ -29,4 +30,6 @@ dependencies {
     kapt proc.moshi
 
     testImplementation test
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
 }

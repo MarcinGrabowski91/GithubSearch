@@ -2,6 +2,7 @@ package eu.gitcode.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,6 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+@Module
 class NetworkModule {
 
     @Singleton
@@ -54,6 +56,6 @@ class NetworkModule {
 
     companion object {
         private const val TIMEOUT = 30L
-        private const val BASE_URL = "https://itunes.apple.com/"
+        private const val BASE_URL = "https://api.github.com/"
     }
 }

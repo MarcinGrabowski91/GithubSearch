@@ -1,9 +1,10 @@
-apply plugin: 'java-library'
-apply plugin: 'kotlin'
+apply plugin: 'com.android.library'
+apply from: '../../buildconfig/app_config.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation libs.kotlin
     implementation libs.dagger
+    implementation libs.lifecycleViewModelKtx
 }

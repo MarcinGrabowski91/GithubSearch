@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/song_list_fragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/githubReposFragment">
     <fragment
-        android:id="@+id/song_list_fragment"
+        android:id="@+id/githubReposFragment"
         android:name="eu.gitcode.github_repositories.presentation.list.GithubReposFragment"
-        android:label="GithubReposFragment" />
+        android:label="GithubReposFragment"
+        tools:layout="@layout/repos_fragment">
+        <action
+            android:id="@+id/action_githubReposFragment_to_githubDetailFragment"
+            app:destination="@id/githubDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/githubDetailFragment"
+        android:name="eu.gitcode.github_repositories.presentation.detail.GithubRepoDetailFragment"
+        android:label="GithubDetailFragment"
+        tools:layout="@layout/repo_detail_fragment" />
 </navigation>

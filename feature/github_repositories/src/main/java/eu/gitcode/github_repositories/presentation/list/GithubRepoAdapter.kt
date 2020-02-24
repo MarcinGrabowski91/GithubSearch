@@ -2,7 +2,9 @@ package eu.gitcode.github_repositories.presentation.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import eu.gitcode.github_repositories.R
 import eu.gitcode.github_repositories.databinding.RepoViewHolderBinding
 import eu.gitcode.github_repositories.domain.model.GithubRepo
 
@@ -21,6 +23,10 @@ class GithubRepoAdapter(
         holder.binding.ownerNameTxt.text = item.ownerData.login
         holder.binding.repoNameTxt.text = item.name
         holder.binding.starsAmountTxt.text = item.stars.toString()
+        holder.binding.repoViewHolderLay.setOnClickListener {
+            holder.itemView.findNavController()
+                .navigate(R.id.action_githubReposFragment_to_githubDetailFragment)
+        }
     }
 
     override fun getItemCount(): Int = repos.size
@@ -33,4 +39,8 @@ class GithubRepoAdapter(
 
     inner class ViewHolder(val binding: RepoViewHolderBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    interface GithubRepoViewHolderListener {
+        fun onClick(ownerName: String, repoName: String)
+    }
 }

@@ -6,7 +6,7 @@ import eu.gitcode.core.di.scope.FeatureScope
 import eu.gitcode.github_repositories.data.repository.GithubGithubReposRepositoryImpl
 import eu.gitcode.github_repositories.data.service.GithubReposService
 import eu.gitcode.github_repositories.domain.repository.GithubReposRepository
-import eu.gitcode.github_repositories.domain.usecase.GetRepoInfoUseCase
+import eu.gitcode.github_repositories.domain.usecase.GetRepoDetailUseCase
 import eu.gitcode.github_repositories.domain.usecase.GetReposListUseCase
 import retrofit2.Retrofit
 
@@ -35,5 +35,5 @@ class GithubReposModule {
     @Provides
     fun provideGetRepoInfoUseCase(
         githubReposRepository: GithubReposRepository
-    ): GetRepoInfoUseCase = GetRepoInfoUseCase(githubReposRepository)
+    ): GetRepoDetailUseCase = GetRepoDetailUseCase(githubReposRepository)
 }

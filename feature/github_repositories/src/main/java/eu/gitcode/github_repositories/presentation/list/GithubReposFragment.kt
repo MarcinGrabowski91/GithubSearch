@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import eu.gitcode.core.extension.visible
-import eu.gitcode.github_repositories.databinding.ReposListFragmentBinding
+import eu.gitcode.github_repositories.databinding.ReposFragmentBinding
 import eu.gitcode.github_repositories.presentation.di.DaggerGithubReposComponent
 import eu.gitcode.network.DaggerNetworkComponent
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class GithubReposFragment : Fragment() {
 
     private lateinit var viewModel: GithubReposViewModel
 
-    private lateinit var binding: ReposListFragmentBinding
+    private lateinit var binding: ReposFragmentBinding
 
     private var adapter: GithubRepoAdapter? = null
 
@@ -31,7 +31,7 @@ class GithubReposFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         inject()
-        binding = ReposListFragmentBinding.inflate(inflater, container, false)
+        binding = ReposFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

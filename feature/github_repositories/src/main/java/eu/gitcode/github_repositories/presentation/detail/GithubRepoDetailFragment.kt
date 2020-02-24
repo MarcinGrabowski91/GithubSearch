@@ -45,10 +45,6 @@ class GithubRepoDetailFragment : Fragment() {
             binding.ownerNameTxt.text = state.githubRepo?.ownerData?.login
             binding.detailsGroup.visible = !state.detailsState.isError()
             binding.progressBar.visible = state.detailsState.isLoading()
-            //            binding.emptyTxt.visible = state.listState.isEmpty()
-//            binding.songsRecyclerViews.visible = state.listState.isListed()
-//            binding.errorTxt.visible = state.listState.isError()
-//            binding.spinner.visible = state.listState.isLoading()
         })
     }
 

@@ -21,10 +21,14 @@ class GithubReposViewModel
     }
     private var githubReposDisposable: Disposable? = null
 
+    init {
+        getReposList("a")
+    }
+
     val state: LiveData<GithubReposViewState>
         get() = _state
 
-    fun getReposList(keyword: String) {
+    private fun getReposList(keyword: String) {
         githubReposDisposable?.dispose()
         githubReposDisposable = getReposListUseCase.getReposList(keyword)
             .subscribeOn(Schedulers.io())

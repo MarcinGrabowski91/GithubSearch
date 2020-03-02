@@ -1,5 +1,6 @@
 package eu.gitcode.github_repositories.presentation.list
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.gitcode.github_repositories.R
 import eu.gitcode.github_repositories.databinding.RepoViewHolderBinding
 import eu.gitcode.github_repositories.domain.model.GithubRepo
+import eu.gitcode.github_repositories.presentation.detail.GithubRepoDetailFragment
 
 class GithubRepoAdapter(
     private val repos: MutableList<GithubRepo> = mutableListOf()
@@ -24,8 +26,12 @@ class GithubRepoAdapter(
         holder.binding.repoNameTxt.text = item.name
         holder.binding.starsAmountTxt.text = item.stars.toString()
         holder.binding.repoViewHolderLay.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString(GithubRepoDetailFragment.REPO_OWNER_KEY, repos[position].ownerData.login)
+                putString(GithubRepoDetailFragment.REPO_NAME_KEY, repos[position].name)
+            }
             holder.itemView.findNavController()
-                .navigate(R.id.action_githubReposFragment_to_githubDetailFragment)
+                .navigate(R.id.action_githubReposFragment_to_githubDetailFragment, bundle)
         }
     }
 

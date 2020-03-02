@@ -31,20 +31,32 @@ class GithubRepoDetailFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val ownerName = arguments?.getString(REPO_OWNER_KEY)
+        val repoName = arguments?.getString(REPO_NAME_KEY)
+        binding.ownerNameTxt.text = ownerName
+        binding.repoNameTxt.text = repoName
         handleStates()
-        viewModel.getReposList("a", "b")
+        arguments?.let {
+            if (ownerName != null && repoName != null) {
+                viewModel.getRepoDetails(ownerName, repoName)
+            }
+        }
     }
 
     private fun handleStates() {
         viewModel =
             ViewModelProvider(this, viewModelFactory).get(GithubRepoDetailViewModel::class.java)
         viewModel.state.observe(viewLifecycleOwner, Observer { state ->
-            binding.repoNameTxt.text = state.githubRepo?.name
-            binding.ownerNameTxt.text = state.githubRepo?.ownerData?.login
+            state.githubRepo?.name?.let {
+                binding.repoNameTxt.text = it
+            }
+            state.githubRepo?.ownerData?.login?.let {
+                binding.ownerNameTxt.text = it
+            }
             binding.detailsGroup.visible = !state.detailsState.isError()
-            binding.progressBar.visible = state.detailsState.isLoading()
+            binding.spinner.visible = state.detailsState.isLoading()
         })
     }
 
@@ -59,16 +71,7 @@ class GithubRepoDetailFragment : Fragment() {
     }
 
     companion object {
-        private const val REPO_OWNER_KEY = "repo_owner"
-        private const val REPO_NAME_KEY = "repo_key"
-
-        fun newInstance(ownerName: String, repoName: String): GithubRepoDetailFragment {
-            return GithubRepoDetailFragment().apply {
-                Bundle().apply {
-                    putString(REPO_OWNER_KEY, ownerName)
-                    putString(REPO_NAME_KEY, repoName)
-                }
-            }
-        }
+        const val REPO_OWNER_KEY = "repo_owner"
+        const val REPO_NAME_KEY = "repo_key"
     }
 }

@@ -37,7 +37,7 @@ class GithubReposViewModel
                 _state.value = _state.value?.copy(listState = GithubReposListState.Loading)
             }
             .subscribeBy(
-                onSuccess = {
+                onNext = {
                     _state.value = _state.value?.copy(
                         githubReposList = it,
                         listState = if (it.isEmpty()) GithubReposListState.Empty else GithubReposListState.Listed

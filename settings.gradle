@@ -1,7 +1,7 @@
 rootProject.name='GithubSearch'
 include ':app'
 include ':library:network'
-//include ':feature:login'
 include ':feature:github_repositories'
 include ':feature:core'
 include ':feature:navigation'
+include ':feature:login'

@@ -19,4 +19,16 @@ data class GithubReposSummaryData(
             .map { githubRepoData -> githubRepoData.toDomainModel() }
             .toList()
     }
+
+    fun toEntitiesPair(): Pair<List<GithubRepoEntity>, List<OwnerEntity>> {
+        val reposEntities = mutableListOf<GithubRepoEntity>()
+        val ownerEntities = mutableListOf<OwnerEntity>()
+        items
+            .asSequence()
+            .map { githubRepoData ->
+                reposEntities.add(githubRepoData.toEntity())
+                ownerEntities.add(githubRepoData.ownerData.toEntity())
+            }
+        return Pair(reposEntities, ownerEntities)
+    }
 }

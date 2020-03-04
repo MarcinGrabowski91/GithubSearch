@@ -27,11 +27,15 @@ dependencies {
     implementation libs.moshi
     implementation libs.paging
     implementation libs.pagingRx
+    implementation libs.room
+    implementation libs.roomKtx
+    implementation libs.roomRx
+    implementation libs.navigationFragmentKtx
+    implementation libs.navigationUiKtx
 
     kapt proc.dagger
     kapt proc.moshi
+    kapt proc.room
 
     testImplementation test
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
 }

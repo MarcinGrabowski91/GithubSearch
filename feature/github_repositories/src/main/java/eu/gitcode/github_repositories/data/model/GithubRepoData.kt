@@ -32,4 +32,16 @@ data class GithubRepoData(
             url
         )
     }
+
+    fun toEntity(): GithubRepoEntity {
+        return GithubRepoEntity(
+            id,
+            gitUrl,
+            createdAt,
+            name,
+            ownerData.id,
+            stars,
+            url
+        )
+    }
 }

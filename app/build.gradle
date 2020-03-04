@@ -15,6 +15,7 @@ dependencies {
     implementation project(":library:network")
     implementation project(":feature:navigation")
     implementation project(":feature:github_repositories")
+    implementation project(":feature:login")
 
     implementation libs.kotlin
     implementation libs.androidKtx
